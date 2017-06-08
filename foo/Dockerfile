@@ -1,2 +1,2 @@
-FROM welcome/ops:latest
+FROM ops:latest
 CMD ["./hello.sh", "foo"]
