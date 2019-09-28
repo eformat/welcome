@@ -5,26 +5,6 @@ metadata:
   name: welcome-template
 objects:
 - apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: null
-    labels:
-      app: welcome
-    name: welcome
-  spec:
-    ports:
-    - name: 8080-tcp
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-    selector:
-      app: welcome
-      deploymentconfig: welcome
-    sessionAffinity: None
-    type: ClusterIP
-- apiVersion: v1
   kind: Route
   metadata:
     annotations:
