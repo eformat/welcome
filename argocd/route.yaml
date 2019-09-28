@@ -1,0 +1,12 @@
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: welcome
+  name: welcome
+spec:
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: welcome
