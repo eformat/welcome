@@ -15,4 +15,4 @@ spec:
     name: welcome
     weight: 100
 status:
-  ingress: []
+  ingress: null
