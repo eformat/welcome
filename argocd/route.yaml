@@ -15,4 +15,7 @@ spec:
     name: welcome
     weight: 100
 status:
-  ingress: []
+  ingress:
+    - conditions:
+        - status: 'True'
+          type: Admitted
