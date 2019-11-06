@@ -32,8 +32,8 @@ spec:
         app: welcome
         deploymentconfig: welcome
     spec:
-      containers:
-      - image: eformat/welcome:latest
+      containers:            
+      - image: docker.io/eformat/welcome@sha256:439ee29db9377fb65798118285097769b7b6dae564175c24fb4e5a26ea6c11cb
         imagePullPolicy: Always
         name: welcome
         ports:
