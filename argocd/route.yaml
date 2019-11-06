@@ -14,3 +14,5 @@ spec:
     kind: Service
     name: welcome
     weight: 100
+status:
+  ingress: []
