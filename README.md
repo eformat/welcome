@@ -17,6 +17,8 @@ sudo chmod +x /usr/bin/argocd
 
 oc port-forward svc/argocd-server -n argocd 4443:443 &
 
+Login to Argocd Web Console (use FireFox) - https://localhost:4443
+
 -- admin password is podname
 PWD=$(oc get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2)
 
