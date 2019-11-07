@@ -33,7 +33,7 @@ spec:
         deploymentconfig: welcome
     spec:
       containers:            
-      - image: quay.io/eformat/welcome@sha256:54b549b2fa86f7e0562de4cbb258f9a9f7e1307946603bfc692a88a5ed626ab2
+      - image: quay.io/eformat/welcome@sha256:83341ea1289e4a9801c09efffa87e3b209c69642bc7ff6ec9c562f588443ef1
         imagePullPolicy: Always
         name: welcome
         ports:
