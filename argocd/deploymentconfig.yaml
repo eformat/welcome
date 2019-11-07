@@ -1,8 +1,5 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
-ignoreDifferences: |
-  jsonPointers:
-  - /spec/template/spec/containers/0/image
 metadata:
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
@@ -12,6 +9,9 @@ metadata:
     app.kubernetes.io/instance: welcome
   name: welcome
 spec:
+  ignoreDifferences: |
+    jsonPointers:
+    - /spec/template/spec/containers/0/image
   replicas: 1
   selector:
     app: welcome
