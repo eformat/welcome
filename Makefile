@@ -53,4 +53,4 @@ argocd-sync:
 	argocd app sync welcome --prune --force
 
 # gitops target
-gitops: update-dc update-is commit-source argocd-sync
+gitops: update-dc update-is docker-tag-release docker-push-release commit-source argocd-sync
