@@ -55,4 +55,4 @@ spec:
       - welcome
       from:
         kind: ImageStreamTag
-        name: quay.io/eformat/welcome:v0.0.2
+        name: welcome:latest
