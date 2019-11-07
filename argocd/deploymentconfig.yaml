@@ -35,7 +35,6 @@ spec:
       containers:            
       - image: quay.io/eformat/welcome:v0.0.2
         imagePullPolicy: Always
-        name: quay.io/eformat/welcome:v0.0.2
         ports:
         - containerPort: 8080
           protocol: TCP

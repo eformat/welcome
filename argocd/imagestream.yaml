@@ -12,6 +12,6 @@ spec:
       openshift.io/imported-from: eformat/welcome
     from:
       kind: DockerImage
-      name: quay.io/eformat/welcome:v0.0.1
+      name: quay.io/eformat/welcome:v0.0.2
     importPolicy: {}
     name: latest
