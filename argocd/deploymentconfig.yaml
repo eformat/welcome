@@ -33,9 +33,9 @@ spec:
         deploymentconfig: welcome
     spec:
       containers:            
-      - image: quay.io/eformat/welcome:v0.0.1
+      - image: quay.io/eformat/welcome:v0.0.2
         imagePullPolicy: Always
-        name: welcome
+        name: quay.io/eformat/welcome:v0.0.2
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -55,4 +55,4 @@ spec:
       - welcome
       from:
         kind: ImageStreamTag
-        name: welcome:latest
+        name: quay.io/eformat/welcome:v0.0.2

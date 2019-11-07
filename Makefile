@@ -3,7 +3,7 @@ REGISTRY ?= quay.io
 REPOSITORY ?= $(REGISTRY)/eformat/welcome
 
 IMG := $(REPOSITORY):latest
-VERSION := v0.0.1
+VERSION := v0.0.2
 
 # Docker Login
 docker-login:
