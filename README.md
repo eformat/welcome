@@ -28,23 +28,25 @@ argocd relogin
 ```
 
 Configure to ignore image sha's on sync for container [0] else we never sync
-
 ```
 -- ignore first image in sync for deployment config
 oc edit cm argocd-cm -n argocd
 
-resource.customizations: |
-  apps.openshift.io/DeploymentConfig:
-    ignoreDifferences: |
-      jsonPointers:
-      - /spec/template/spec/containers/0/image
+  resource.customizations: |
+    apps.openshift.io/DeploymentConfig:
+      ignoreDifferences: |
+        jsonPointers:
+        - /spec/template/spec/containers/0/image
+```
+
+Bounce pod
+```
+oc delete $(oc get pod -o name -l app.kubernetes.io/name=argocd-server)
 ```
 
 Add your application to argocd
 
 ```
-argocd repo add git@github.com:eformat/welcome.git 
-
 oc new-project welcome
 
 argocd repo add git@github.com:eformat/welcome.git --ssh-private-key-path ~/.ssh/id_rsa
@@ -58,16 +60,15 @@ argocd app get welcome
 argocd app sync welcome --prune
 ```
 
-Delete you application
-
-```
-argocd app delete welcome
-```
-
 Gitops - use make to push and deploy your new image!
 
 ```
 VERSION=v0.0.5
 sed -i -e "s|VERSION :=.*|VERSION := ${VERSION}|g" Makefile
 make gitops
+```
+
+Delete your application
+```
+argocd app delete welcome
 ```
