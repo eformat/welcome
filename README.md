@@ -32,6 +32,7 @@ Configure to ignore image sha's on sync for container [0] else we never sync
 -- ignore first image in sync for deployment config
 oc edit cm argocd-cm -n argocd
 
+data:
   resource.customizations: |
     apps.openshift.io/DeploymentConfig:
       ignoreDifferences: |
