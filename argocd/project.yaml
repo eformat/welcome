@@ -1,0 +1,10 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  annotations:
+    openshift.io/description: "welcome"
+    openshift.io/display-name: "welcome"
+  name: welcome
+spec:
+  finalizers:
+  - kubernetes
