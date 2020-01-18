@@ -7,55 +7,18 @@ make docker-push
 
 ### ARGOCD - GitOps
 
-Deploy argocd
-
-```
-oc new-project argocd --display-name="ArgoCD" --description="ArgoCD"
-oc apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/release-1.3/manifests/install.yaml
-sudo curl -L  https://github.com/argoproj/argo-cd/releases/download/v1.3.0/argocd-linux-amd64 -o /usr/bin/argocd
-sudo chmod +x /usr/bin/argocd
-
-oc port-forward svc/argocd-server -n argocd 4443:443 &
-
-Login to Argocd Web Console (use FireFox) - https://localhost:4443
-
--- admin password is podname
-PSWD=$(oc get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2)
-
-argocd login localhost:4443 --insecure --username admin --password $PSWD
-argocd account update-password --insecure
-argocd relogin
-```
-
-Configure to ignore image sha's on sync for container [0] else we never sync
-```
--- ignore first image in sync for deployment config
-oc edit cm argocd-cm -n argocd
-
-data:
-  resource.customizations: |
-    apps.openshift.io/DeploymentConfig:
-      ignoreDifferences: |
-        jsonPointers:
-        - /spec/template/spec/containers/0/image
-```
-
-Bounce pod
-```
-oc delete $(oc get pod -o name -l app.kubernetes.io/name=argocd-server)
-```
-
 Add your application to argocd
-
 ```
 oc new-project welcome
 
 argocd repo add git@github.com:eformat/welcome.git --ssh-private-key-path ~/.ssh/id_rsa
 argocd app create welcome \
   --repo git@github.com:eformat/welcome.git \
-  --path argocd \
+  --path argocd/overlays/cluster1 \
   --dest-server https://kubernetes.default.svc \
-  --dest-namespace welcome
+  --dest-namespace welcome \
+  --revision master \
+  --sync-policy automated
 
 argocd app get welcome
 argocd app sync welcome --prune
