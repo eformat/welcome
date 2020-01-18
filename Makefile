@@ -3,7 +3,7 @@ REGISTRY ?= quay.io
 REPOSITORY ?= $(REGISTRY)/eformat/welcome
 
 IMG := $(REPOSITORY):latest
-VERSION := v0.0.6
+VERSION := v0.0.7
 
 # Docker Login
 docker-login:
@@ -16,7 +16,7 @@ docker-tag-dev:
 # Tag for Dev
 docker-tag-release:
 	@docker tag $(IMG) $(REPOSITORY):$(VERSION)
-	@docker tag $(IMG) $(REPOSITORY):latest	
+	@docker tag $(REPOSITORY):$(VERSION) $(REPOSITORY):latest	
 
 # Push for Dev
 docker-push-dev:  docker-tag-dev

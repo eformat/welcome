@@ -27,7 +27,7 @@ argocd app sync welcome --prune
 Gitops - use make to push and deploy your new image!
 
 ```
-VERSION=v0.0.6
+VERSION=v0.0.7
 sed -i -e "s|VERSION :=.*|VERSION := ${VERSION}|g" Makefile
 make gitops
 ```
