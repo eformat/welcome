@@ -11,8 +11,8 @@ Deploy argocd
 
 ```
 oc new-project argocd --display-name="ArgoCD" --description="ArgoCD"
-oc apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/release-1.2/manifests/install.yaml
-sudo curl -L  https://github.com/argoproj/argo-cd/releases/download/v1.2.2/argocd-linux-amd64 -o /usr/bin/argocd
+oc apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/release-1.3/manifests/install.yaml
+sudo curl -L  https://github.com/argoproj/argo-cd/releases/download/v1.3.0/argocd-linux-amd64 -o /usr/bin/argocd
 sudo chmod +x /usr/bin/argocd
 
 oc port-forward svc/argocd-server -n argocd 4443:443 &
@@ -20,9 +20,9 @@ oc port-forward svc/argocd-server -n argocd 4443:443 &
 Login to Argocd Web Console (use FireFox) - https://localhost:4443
 
 -- admin password is podname
-PWD=$(oc get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2)
+PSWD=$(oc get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2)
 
-argocd login localhost:4443 --insecure --username admin --password $PWD
+argocd login localhost:4443 --insecure --username admin --password $PSWD
 argocd account update-password --insecure
 argocd relogin
 ```
