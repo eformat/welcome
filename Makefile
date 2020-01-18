@@ -3,7 +3,7 @@ REGISTRY ?= quay.io
 REPOSITORY ?= $(REGISTRY)/eformat/welcome
 
 IMG := $(REPOSITORY):latest
-VERSION := v0.0.5
+VERSION := v0.0.6
 
 # Docker Login
 docker-login:
@@ -37,10 +37,10 @@ docker-push: docker-build
 
 # ArgoCD commands for image update
 update-dc:
-	sed -i -e "s|      - image:.*$$|      - image: ${REPOSITORY}:${VERSION}|g" argocd/deploymentconfig.yaml
+	sed -i -e "s|      - image:.*$$|      - image: ${REPOSITORY}:${VERSION}|g" argocd/base/deploymentconfig.yaml
 
 update-is:
-	sed -i -e "s|      name:.*$$|      name: $(REPOSITORY):$(VERSION)|g" argocd/imagestream.yaml
+	sed -i -e "s|      name:.*$$|      name: $(REPOSITORY):$(VERSION)|g" argocd/base/imagestream.yaml
 
 # git commit
 commit-source:
