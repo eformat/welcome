@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/instance: welcome
   name: welcome
 spec:
-  host: welcome-welcome.apps.foo.sandbox925.opentlc.com
+  host: welcome-welcome.apps.hivec.sandbox526.opentlc.com
   port:
     targetPort: 8080-tcp
   to:
