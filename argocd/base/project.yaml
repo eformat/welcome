@@ -4,6 +4,7 @@ metadata:
   annotations:
     openshift.io/description: "welcome"
     openshift.io/display-name: "welcome"
+    argocd.argoproj.io/sync-wave: "0"
   name: welcome
 spec:
   finalizers:

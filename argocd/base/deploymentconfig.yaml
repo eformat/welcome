@@ -2,7 +2,8 @@ apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
   annotations:
-    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/generated-by: OpenShiftNewApp  
+    argocd.argoproj.io/sync-wave: "2"
   creationTimestamp: null
   labels:
     app: welcome
