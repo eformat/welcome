@@ -5,9 +5,10 @@ metadata:
   labels:
     app: welcome
     app.kubernetes.io/instance: welcome
+    openshift.io/host.generated: "true"
   name: welcome
 spec:
-  host: welcome-welcome.apps.hivec.sandbox526.opentlc.com
+  host: null
   port:
     targetPort: 8080-tcp
   to:
