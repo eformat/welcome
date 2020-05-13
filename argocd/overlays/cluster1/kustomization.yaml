@@ -1,4 +1,6 @@
-bases:
+resources:
+- project.yaml
 - ../../base
+namespace: welcome
 patchesStrategicMerge:
 - deploymentconfig.yaml 

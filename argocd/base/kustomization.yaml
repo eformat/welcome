@@ -1,5 +1,4 @@
 resources:
-- project.yaml
 - imagestream.yaml
 - deploymentconfig.yaml
 - service.yaml

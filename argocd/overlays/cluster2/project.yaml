@@ -1,0 +1,11 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  annotations:
+    openshift.io/description: "gudday"
+    openshift.io/display-name: "gudday"
+    argocd.argoproj.io/sync-wave: "0"
+  name: gudday
+spec:
+  finalizers:
+  - kubernetes
