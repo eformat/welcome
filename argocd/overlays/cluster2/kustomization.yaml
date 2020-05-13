@@ -2,3 +2,5 @@ resources:
 - project.yaml
 - ../../base
 namespace: gudday
+patchesStrategicMerge:
+- deploymentconfig.yaml 
