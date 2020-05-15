@@ -1,4 +1,5 @@
+bases:
+- ../../base
 resources:
 - project.yaml
-- ../../base
 namespace: gudday
