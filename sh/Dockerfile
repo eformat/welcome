@@ -1,4 +1,4 @@
-FROM docker.io/library/busybox:latest
+FROM docker.io/busybox:latest
 ARG GIT_COMMIT=unkown
 LABEL GIT_COMMIT=$GIT_COMMIT
 ADD ./hello.sh ./
