@@ -7,7 +7,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: welcome
-    app.kubernetes.io/instance: welcome    
+    app.kubernetes.io/instance: welcome
   name: welcome
 spec:
   host: null
