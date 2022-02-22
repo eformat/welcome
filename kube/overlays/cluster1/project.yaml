@@ -5,6 +5,8 @@ metadata:
     openshift.io/description: "welcome"
     openshift.io/display-name: "welcome"
     argocd.argoproj.io/sync-wave: "0"
+  labels:
+    argocd.argoproj.io/managed-by: openshift-gitops
   name: welcome
 spec:
   finalizers:
