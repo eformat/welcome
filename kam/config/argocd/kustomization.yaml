@@ -1,0 +1,4 @@
+resources:
+- argo-app.yaml
+- welcome-dev-env-app.yaml
+- welcome-dev-welcome-app.yaml

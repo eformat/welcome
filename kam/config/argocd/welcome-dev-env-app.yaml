@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: null
+  name: welcome-dev-env
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: welcome-dev
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: environments/welcome-dev/env/overlays
+    repoURL: https://github.com/eformat/welcome.git
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  health: {}
+  summary: {}
+  sync:
+    comparedTo:
+      destination: {}
+      source:
+        repoURL: ""
+    status: ""

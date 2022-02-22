@@ -1,0 +1,7 @@
+config:
+  argocd:
+    namespace: openshift-gitops
+environments:
+- name: welcome-dev
+gitops_url: https://github.com/eformat/welcome.git
+version: 1
