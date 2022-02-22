@@ -31,7 +31,7 @@ spec:
     kind: Route
   project: default
   source:
-    path: config/argocd
+    path: kam/config/argocd
     repoURL: https://github.com/eformat/welcome.git
   syncPolicy:
     automated:

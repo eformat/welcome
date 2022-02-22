@@ -10,7 +10,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: environments/welcome-dev/env/overlays
+    path: kam/environments/welcome-dev/env/overlays
     repoURL: https://github.com/eformat/welcome.git
   syncPolicy:
     automated:
