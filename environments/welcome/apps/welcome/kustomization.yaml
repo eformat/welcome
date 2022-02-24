@@ -1,3 +1,0 @@
-bases:
-commonLabels:
-  app.openshift.io/vcs-source: eformat/welcome
