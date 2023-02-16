@@ -25,7 +25,6 @@ spec:
       creationTimestamp: null
       labels:
         app: welcome
-        deploymentconfig: welcome
     spec:
       containers:
       - image: quay.io/eformat/welcome:latest

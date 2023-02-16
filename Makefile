@@ -35,10 +35,6 @@ podman-build:
 podman-push: podman-build
 	podman push ${IMG}
 
-# ArgoCD commands for image update
-update-dc:
-	sed -i -e "s|      - image:.*$$|      - image: ${REPOSITORY}:${VERSION}|g" argocd/base/deploymentconfig.yaml
-
 update-is:
 	sed -i -e "s|      name:.*$$|      name: $(REPOSITORY):$(VERSION)|g" argocd/base/imagestream.yaml
 
@@ -53,4 +49,4 @@ argocd-sync:
 	argocd app sync welcome --prune --force
 
 # gitops target
-gitops: update-dc update-is podman-tag-release podman-push-release commit-source argocd-sync
+gitops: update-is podman-tag-release podman-push-release commit-source argocd-sync

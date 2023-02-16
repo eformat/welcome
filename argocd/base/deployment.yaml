@@ -1,12 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     app: welcome
-    app.kubernetes.io/component: welcome
-    app.kubernetes.io/instance: welcome
-    app.kubernetes.io/part-of: welcome
+  annotations:
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"welcome:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"welcome\")].image"}]'
   name: welcome
 spec:
   progressDeadlineSeconds: 600
@@ -27,12 +25,9 @@ spec:
         app: welcome
     spec:
       containers:
-      - image: quay.io/eformat/welcome:latest
+      - image: ' '
         imagePullPolicy: Always
         name: welcome
-        ports:
-        - containerPort: 8080
-          protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File

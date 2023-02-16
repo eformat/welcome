@@ -4,4 +4,4 @@ resources:
 - project.yaml
 namespace: gudday
 patchesStrategicMerge:
-- deploymentconfig.yaml 
+- deployment.yaml 
