@@ -1,11 +1,10 @@
-apiVersion: project.openshift.io/v1
-kind: Project
+---
+apiVersion: v1
+kind: Namespace
 metadata:
+  name: welcome
   annotations:
     openshift.io/description: "welcome"
     openshift.io/display-name: "welcome"
     argocd.argoproj.io/sync-wave: "0"
-  name: welcome
-spec:
-  finalizers:
-  - kubernetes
+spec: {}
