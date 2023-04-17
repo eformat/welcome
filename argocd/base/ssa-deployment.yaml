@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome
+spec:
+  template:
+    spec:
+      containers:
+      - image: quay.io/eformat/welcome@sha256:3ff174068ca12ad02d829f883814572d7af180bd23b0fa78a7a81c5ee6bbe054
+        imagePullPolicy: Always
+        name: welcome3
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
