@@ -5,7 +5,7 @@ metadata:
     app: welcome
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"welcome:latest"},"fieldPath":"spec.template.spec.containers[?(@.name =~ /welcome.*/)].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"welcome:latest"},"fieldPath":"spec.template.spec.containers[?(@.name in ['welcome1','welcome2'])].image"}]'
   name: welcome
 spec:
   progressDeadlineSeconds: 600
