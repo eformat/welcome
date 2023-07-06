@@ -29,7 +29,7 @@ podman-push-release:  podman-tag-release
 
 # Build the podman image
 podman-build:
-	cd sh && podman build . -t ${IMG} -f Dockerfile
+	cd sh && podman build . -t ${IMG} -f Dockerfile.ubi
 
 # Push the podman image
 podman-push: podman-build

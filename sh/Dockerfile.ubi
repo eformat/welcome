@@ -1,5 +1,5 @@
-FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
-RUN microdnf install nc iproute && microdnf clean all
+FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
+RUN microdnf -y install nc iproute procps-ng && microdnf clean all
 ADD ./hello.sh ./
-EXPOSE 8080
+EXPOSE 8080 8443
 CMD ["./hello.sh"]
