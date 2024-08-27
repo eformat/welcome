@@ -29,11 +29,14 @@ podman-push-release:  podman-tag-release
 
 # Build the podman image
 podman-build:
-	cd sh && podman build . -t ${IMG} -f Dockerfile.ubi
+	cd sh && podman build --platform linux/amd64 . -t ${IMG} -t ${IMG}-x86_64 -f Dockerfile.ubi
+	cd sh && podman build --platform linux/arm64 . -t ${IMG}-aarch64 -f Dockerfile.ubi
 
 # Push the podman image
 podman-push: podman-build
 	podman push ${IMG}
+	podman push ${IMG}-x86_64
+	podman push ${IMG}-aarch64
 
 update-is:
 	sed -i -e "s|      name:.*$$|      name: $(REPOSITORY):$(VERSION)|g" argocd/base/imagestream.yaml
